@@ -1,5 +1,3 @@
-// import Vue from "vue";
-// import VueRouter from "vue-router";
 import { createRouter, createWebHistory } from "vue-router";
 import NewsView from "../views/NewsView.vue";
 import JobsView from "../views/JobsView.vue";
