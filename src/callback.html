@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jquery ajax</title>
+  </head>
+  <body>
+    <div>jquery ajax</div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      function callAjax() {
+        return new Promise(function (resolve, reject) {
+          $.ajax({
+            url: "https://api.hnpwa.com/v0/news/1.json",
+            success: function (data) {
+              resolve(data);
+            },
+          });
+        });
+      }
+
+      function fetchData() {
+        // 1
+        var result = [];
+
+        //new Promise가 여기서 떨어지게 되면서 resolve 하게되면 실행해가 될 수 있다.
+        callAjax().then(function (data) {
+          console.log("데이터 호출 결과", data);
+          result = data;
+          console.log("함수 결과", result);
+        });
+
+        // // 2
+        // $.ajax({
+        //   url: "https://api.hnpwa.com/v0/news/1.json",
+        //   success: function (data) {
+        //     console.log("데이터 호출 결과", data);
+        //     result = data;
+        //     //이걸 함수안에 넣어서 !
+        //     console.log("함수 결과", result);
+        //   },
+        // });
+
+        // 3
+        // console.log("함수 결과", result);
+      }
+    </script>
+  </body>
+</html>
