@@ -25,6 +25,11 @@ function fetchJobsList() {
   //   return axios.get(config.baseUrl + "news/1.json");
   return axios.get(`${config.baseUrl}jobs/1.json`);
 }
-export { fetchNewsList, fetchAskList, fetchJobsList };
+
+function fetchUserInfo(username) {
+  return axios.get(`${config.baseUrl}user/${username}.json`);
+}
+
+export { fetchNewsList, fetchAskList, fetchJobsList, fetchUserInfo };
 
 //api가 많아질때는 import export로 모듈화를 할 수 있다. 그에 대한것은 다음 섹션에서!

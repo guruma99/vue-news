@@ -11,6 +11,8 @@ export const store = createStore({
     news: [],
     jobs: [],
     ask: [],
+    //하나라서 객체로
+    user: {},
   },
 
   getters: {

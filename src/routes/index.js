@@ -27,7 +27,8 @@ const routes = [
     component: JobsView,
   },
   {
-    path: "/user",
+    //params으로 vue 라우터가 집어넣는다.
+    path: "/user/:id",
     component: UserView,
   },
   {
