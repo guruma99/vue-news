@@ -8,7 +8,7 @@
 
     <p v-for="item in this.$store.state.news">
       <!-- item안에 있는 데이터를 연결할 때는 v-bind:href -->
-      <a v-bind:href="item.url" target="_blank">
+      <a v-bind:href="item.url">
         {{ item.title }}
       </a>
       <small>

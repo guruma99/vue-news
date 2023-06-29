@@ -5,10 +5,14 @@
     <!-- <div v-for="item in fetchedAsk">{{ item.title }}</div> -->
 
     <p v-for="item in fetchedAsk">
-      <!-- item안에 있는 데이터를 연결할 때는 v-bind:href -->
-      <a v-bind:href="item.url" target="_blank">
+      <!-- 🧐 v-bind 란? item안에 있는 데이터를 연결할 때는 v-bind:href -->
+      <!-- <a v-bind:href="item.url" target="_blank">
         {{ item.title }}
-      </a>
+      </a> -->
+
+      <router-link v-bind:to="`/item/${item.id}`">
+        {{ item.title }}
+      </router-link>
       <small>{{ item.time_ago }} by {{ item.user }}</small>
     </p>
   </div>

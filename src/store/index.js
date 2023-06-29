@@ -13,11 +13,15 @@ export const store = createStore({
     ask: [],
     //하나라서 객체로
     user: {},
+    item: [],
   },
 
   getters: {
     fetchedAsk(state) {
       return state.ask;
+    },
+    fetchedItem(state) {
+      return state.item;
     },
   },
 
