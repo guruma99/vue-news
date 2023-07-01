@@ -1,4 +1,4 @@
-// ✅ index.js파일, 여기서 호출할 수 있게끔 api 함수들을 정리한다.
+// ✅ api폴더의 index.js파일, 여기서 호출할 수 있게끔 api 함수들을 정리한다.
 // node_modules/axios 노드모듈에 설치된 라이브러리 axios를 들고온다.
 import axios from "axios";
 
@@ -42,3 +42,4 @@ export {
 };
 
 //api가 많아질때는 import export로 모듈화를 할 수 있다. 그에 대한것은 다음 섹션에서!
+//순서: api호출-> 데이터 담아주기 -> 뿌려주기

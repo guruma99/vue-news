@@ -17,6 +17,7 @@ export default {
         console.log(error);
       });
   },
+  //ES6 Destructuring 문법으로 {commit}, {data}가 가능하게 된다.
   FETCH_JOBS({ commit }) {
     fetchJobsList()
       .then(({ data }) => {

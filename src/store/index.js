@@ -1,3 +1,6 @@
+//✅ Store: 공통 저장소로 언제든지 빼서 쓸 수 있다.
+//vuex: 상태관리 라이브러리(도구)
+//api를 vuex에서 호출한다고 하면 actions에서 해야된다.
 import { createStore } from "vuex";
 //api들고옴
 // import { fetchNewsList, fetchJobsList, fetchAskList } from "../api/index.js";
@@ -6,12 +9,13 @@ import actions from "./actions.js";
 
 //👇인스턴스: 내보내야한다.
 export const store = createStore({
-  //스테이트에 news라는 배열형태로 속성을 선언한다.
+  //스테이트에 news,jobs,ask,user,item이라는 배열형태로 속성을 선언한다.
+  //상태(state) 라는것은 여러 컴포넌트간에 공유되는 데이터 속성을 말한다.
   state: {
     news: [],
     jobs: [],
     ask: [],
-    //하나라서 객체로
+    //use는 하나라서 객체로{}
     user: {},
     item: [],
   },
@@ -46,7 +50,7 @@ export const store = createStore({
   actions,
   // actions: {
   //   //FETCH_NEWS함수선언
-  //   //actions에서 API 호출하기!
+  //   //API 호출은 actions에서 !
   //   FETCH_NEWS(context) {
   //     fetchNewsList()
   //       .then((response) => {

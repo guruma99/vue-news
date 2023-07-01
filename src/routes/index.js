@@ -6,7 +6,7 @@ import UserView from "../views/UserView.vue";
 import ItemView from "../views/ItemView.vue";
 
 // Vue.use(VueRouter);
-
+// this.$route로 각 페이지의 라우트정보에 접근할 수 있다.
 const routes = [
   {
     path: "/",
@@ -15,15 +15,18 @@ const routes = [
   {
     //path: url 주소
     path: "/news",
+    name: "news",
     //component: url 주소로 갔을 때 표시될 컴포넌트 =page
     component: NewsView,
   },
   {
     path: "/ask",
+    name: "ask",
     component: AskView,
   },
   {
     path: "/jobs",
+    name: "jobs",
     component: JobsView,
   },
   {
