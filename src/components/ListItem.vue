@@ -51,19 +51,18 @@ v-if 안에 해당되는 조건이 있다면 조건안의 것을 뿌릴 것이�
 export default {
   created() {
     // this.$route로 각 페이지의 라우트정보에 접근할 수 있다.
-    console.log(this.$route.path === "/news");
-    const name = this.$route.name;
-
-    if (name === "news") {
-      this.$store.dispatch("FETCH_NEWS");
-      // actionName = "FETCH_NEWS";
-    } else if (name === "ask") {
-      this.$store.dispatch("FETCH_ASK");
-      // actionName = "FETCH_ASK";
-    } else if (name === "jobs") {
-      this.$store.dispatch("FETCH_JOBS");
-      // actionName = "FETCH_JOBS";
-    }
+    // console.log(this.$route.path === "/news");
+    // const name = this.$route.name;
+    // if (name === "news") {
+    //   this.$store.dispatch("FETCH_NEWS");
+    //   // actionName = "FETCH_NEWS";
+    // } else if (name === "ask") {
+    //   this.$store.dispatch("FETCH_ASK");
+    //   // actionName = "FETCH_ASK";
+    // } else if (name === "jobs") {
+    //   this.$store.dispatch("FETCH_JOBS");
+    //   // actionName = "FETCH_JOBS";
+    // }
     // this.$store.dispatch(actionName);
   },
   //computed속성으로 데이터 뿌려줄 것들을 연결시켜준다.
