@@ -16,7 +16,8 @@
               </a>
             </template>
             <template v-else>
-              <router-link v-bind:to="`/item/${item.id}`">
+              <!-- v-bind:to=""를 :to 로 축약 할 수 있어요 -->
+              <router-link :to="`/item/${item.id}`">
                 {{ item.title }}
               </router-link>
             </template>

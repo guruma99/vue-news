@@ -1,26 +1,30 @@
 <template>
   <div>
-    <!--🟡 질문 상세 정보 영역 -->
+    <!--🟡 사용자 정보 -->
     <section>
-      <div class="user-container">
-        <div>
-          <i class="fa-solid fa-user"></i>
-        </div>
-        <div class="user-description">
-          <!-- v-bind:to=""를 :to 로 축약 할 수 있어요 -->
-          <router-link :to="`/user/${fetchedItem.user}`">
+      <!-- 👇UserProfile.vue 컴포넌트 들고오기 -->
+      <user-profile :info="fetchedItem">
+        <!-- :info라고 props넘겨준다. -->
+        <template v-slot:username>
+          <!-- <div>{{ fetchedItem.user }}</div> -->
+          <router-link :to="`/user/${fetchedItem.user}`" class="link-text">
             {{ fetchedItem.user }}
           </router-link>
-          <div class="time">
-            {{ fetchedItem.time_ago }}
-          </div>
-        </div>
-      </div>
+        </template>
+
+        <template v-slot:time>
+          {{ "Posted " + fetchedItem.time_ago }}
+        </template>
+      </user-profile>
     </section>
 
-    <!--🟡 질문 댓글 영역 -->
-    <section class="content-container">
+    <!--🟡 질문 제목  -->
+    <section>
       <h2>{{ fetchedItem.title }}</h2>
+    </section>
+
+    <!--🟡 질문 댓글 (본문)  -->
+    <section class="content-container">
       <div v-html="fetchedItem.content"></div>
     </section>
   </div>
@@ -30,8 +34,12 @@
 //헬퍼함수 꺼내오기
 //vuex bindings에 fetchedItem으로 되어있음.
 import { mapGetters } from "vuex";
+import UserProfile from "@/components/UserProfile.vue";
 
 export default {
+  components: {
+    UserProfile,
+  },
   computed: {
     ...mapGetters(["fetchedItem"]),
   },

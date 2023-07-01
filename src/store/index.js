@@ -16,8 +16,9 @@ export const store = createStore({
     jobs: [],
     ask: [],
     //use는 하나라서 객체로{}
+    // 여기서 타입 정의를 하면 props로 데이터를 받아 쓸 때도 영향을 미친다.
     user: {},
-    item: [],
+    item: {},
   },
 
   getters: {
