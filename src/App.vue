@@ -12,31 +12,43 @@
 <script>
 import ToolBar from "./components/ToolBar.vue";
 import Spinner from "./components/Spinner.vue";
-import bus from "./utils/bus.js";
+// import bus from "./utils/bus.js";
+// import mitt from "mitt";
 
 export default {
   components: {
     ToolBar,
     Spinner,
   },
-  data() {
-    return {
-      loadingStatus: false,
-    };
-  },
-  methods: {
-    startSpinner() {
-      this.loadingStatus = true;
-    },
-    endSpinner() {
-      this.loadingStatus = false;
+  // data() {
+  //   return {
+  //     loadingStatus: true,
+  //   };
+  // },
+
+  computed: {
+    loadingStatus() {
+      return this.$store.state.loadingStatus;
     },
   },
+  // computed: {
+  //   loadingStatus() {
+  //     return this.$store.state.LoadingStatus;
+  //   },
+  // },
+  // methods: {
+  //   startSpinner() {
+  //     this.loadingStatus = true;
+  //   },
+  //   endSpinner() {
+  //     this.loadingStatus = false;
+  //   },
+  // },
   created() {
     //👇methods적기 전
     // bus.$on("start:spinner", () => (this.loadingStatus = true));
     //👇methods적은 후
-    bus.$on("start:spinner", this.startSpinner);
+    // bus.emitter.on("start:spinner", this.startSpinner);
   },
 };
 </script>

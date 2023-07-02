@@ -19,6 +19,8 @@ export const store = createStore({
     // 여기서 타입 정의를 하면 props로 데이터를 받아 쓸 때도 영향을 미친다.
     user: {},
     item: {},
+    list: [],
+    loadingStatus: false,
   },
 
   getters: {
