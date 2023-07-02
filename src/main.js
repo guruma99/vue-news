@@ -15,12 +15,15 @@
 // 👇vue 3 은 이렇게 씁니다.
 import { createApp } from "vue";
 import App from "./App.vue";
+// import mitt from "mitt";
 // 생성한 뷰 라우터 받아오기
 import { router } from "./routes/index.js";
 import { store } from "./store/index.js";
 
 // createApp(App).mount("#app");
+// const emitter = mitt();
 const app = createApp(App);
+// app.config.globalProperties.emitter = emitter;
 app.use(router); // 라우터 사용
-app.mount("#app");
 app.use(store);
+app.mount("#app");

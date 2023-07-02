@@ -7,17 +7,50 @@
 
 <script>
 import ListItem from "../components/ListItem.vue";
-import bus from "../utils/bus.js";
+import ListMixin from "../mixins/ListMixin.js";
 
 export default {
   components: {
     ListItem,
   },
-  created() {
-    bus.$emit("start:spinner");
-    this.$store.dispatch("FETCH_NEWS");
+
+  mixins: [ListMixin],
+
+  computed: {
+    loadingStatus() {
+      return this.$store.state.loadingStatus;
+    },
   },
+
+  async created() {
+    this.$store.commit("updateLoadingStatus", true);
+    // bus.emitter.$emit("start:spinner");
+    // this.$store
+    //   .dispatch("FETCH_NEWS")
+    //   .then(() => {
+    //     console.log("페치됨");
+    //     console.log(this.$store.state.LoadingStatus);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
+
+    try {
+      await this.$store.dispatch("FETCH_NEWS");
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setTimeout(() => {
+        this.$store.commit("updateLoadingStatus", false);
+      }, 3000); // 3초 지연
+    }
+  },
+  // methods: {
+  //   enterKeyFunction() {
+  //     this.emitter.emit("start:spinner");
+  //   },
+  // },
 };
 </script>
 
-<style scoped></style>
+<style></style>

@@ -69,14 +69,15 @@ export default {
   // 🐛🐛 es-lint 에서는 if문 사용할 때에 꼭! else가 마무리 되어야 오류로 잡지 않는다.
   computed: {
     listItems() {
-      const name = this.$route.name;
-      if (name === "news") {
-        return this.$store.state.news;
-      } else if (name === "ask") {
-        return this.$store.state.ask;
-      } else {
-        return this.$store.state.jobs;
-      }
+      // const name = this.$route.name;
+      // if (name === "news") {
+      //   return this.$store.state.news;
+      // } else if (name === "ask") {
+      //   return this.$store.state.ask;
+      // } else {
+      //   return this.$store.state.jobs;
+      // }
+      return this.$store.state.list;
     },
   },
 };

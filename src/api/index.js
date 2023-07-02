@@ -33,12 +33,18 @@ function fetchUserInfo(username) {
 function fetchCommentItem(id) {
   return axios.get(`${config.baseUrl}item/${id}.json`);
 }
+
+function fetchList(pageName) {
+  return axios.get(`${config.baseUrl}${pageName}/1.json`);
+}
+
 export {
   fetchNewsList,
   fetchAskList,
   fetchJobsList,
   fetchUserInfo,
   fetchCommentItem,
+  fetchList,
 };
 
 //api가 많아질때는 import export로 모듈화를 할 수 있다. 그에 대한것은 다음 섹션에서!
