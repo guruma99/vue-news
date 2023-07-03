@@ -7,14 +7,14 @@
 
 <script>
 import ListItem from "../components/ListItem.vue";
-// import ListMixin from "../mixins/ListMixin.js";
+import ListMixin from "../mixins/ListMixin.js";
 
 export default {
   components: {
     ListItem,
   },
 
-  // mixins: [ListMixin],
+  mixins: [ListMixin],
 
   computed: {
     loadingStatus() {
@@ -22,33 +22,19 @@ export default {
     },
   },
 
-  async created() {
-    this.$store.commit("updateLoadingStatus", true);
-    // bus.emitter.$emit("start:spinner");
-    // this.$store
-    //   .dispatch("FETCH_NEWS")
-    //   .then(() => {
-    //     console.log("페치됨");
-    //     console.log(this.$store.state.LoadingStatus);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
+  // async created() {
+  //   this.$store.commit("updateLoadingStatus", true);
 
-    try {
-      await this.$store.dispatch("FETCH_NEWS");
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setTimeout(() => {
-        this.$store.commit("updateLoadingStatus", false);
-      }, 3000); // 3초 지연
-    }
-  },
-  // methods: {
-  //   enterKeyFunction() {
-  //     this.emitter.emit("start:spinner");
-  //   },
+  //   try {
+  //     await this.$store.dispatch("FETCH_NEWS");
+  //   } catch (error) {
+  //     console.log(error);
+  //   } finally {
+  //     this.$store.commit("updateLoadingStatus", false);
+  //     // setTimeout(() => {
+  //     //   this.$store.commit("updateLoadingStatus", false);
+  //     // }, 500); // 3초 지연
+  //   }
   // },
 };
 </script>

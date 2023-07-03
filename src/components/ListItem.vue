@@ -90,6 +90,7 @@ export default {
       // } else {
       //   return this.$store.state.jobs;
       // }
+      //👇Mixins 쓸 때 주석 풀기
       return this.$store.state.list;
     },
   },

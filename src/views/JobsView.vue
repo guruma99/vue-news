@@ -15,15 +15,15 @@ export default {
   },
   mixins: [ListMixin],
 
-  created() {
-    this.$store
-      .dispatch("FETCH_JOBS")
-      .then(() => {
-        console.log("페치됨");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  },
+  // created() {
+  //   this.$store
+  //     .dispatch("FETCH_JOBS")
+  //     .then(() => {
+  //       console.log("페치됨");
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // },
 };
 </script>
