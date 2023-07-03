@@ -4,6 +4,7 @@ import JobsView from "../views/JobsView.vue";
 import AskView from "../views/AskView.vue";
 import UserView from "../views/UserView.vue";
 import ItemView from "../views/ItemView.vue";
+// @붙어야지 되네?..
 import { store } from "@/store";
 // import createListView from "../views/CreateListView.js";
 
