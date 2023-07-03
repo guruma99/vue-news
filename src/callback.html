@@ -8,12 +8,20 @@
   <body>
     <div>jquery ajax</div>
 
+    <!-- 제이쿼리 CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
+      // 🧐💡💡 promise문법!!!!
+      // 성공,실패에 대한 상태를 가지고 있다. 객체라는 것은 resolve, reject  를 인자로 받는다.
+      // .then (); -- > 영어 덴은 그리고나면, 이라는 뜻: 성공후!
+      // .catch (); -- > 실패하면, 에러 잡기
+      // .then, .catch쓰려면, promise로 반환해줘야한다.
+
       function callAjax() {
         return new Promise(function (resolve, reject) {
           $.ajax({
             url: "https://api.hnpwa.com/v0/news/1.json",
+            // success: ajax요청이 성공했을 때만 실행하게 된다. --> ajax라는 라이브러리에서만 제공되는 콜백함수
             success: function (data) {
               resolve(data);
             },
@@ -25,14 +33,14 @@
         // 1
         var result = [];
 
-        //new Promise가 여기서 떨어지게 되면서 resolve 하게되면 실행해가 될 수 있다.
+        //new Promise가 여기서 떨어지게 되면서 resolve 하게되면 실행하렴이 될 수 있다.
         callAjax().then(function (data) {
           console.log("데이터 호출 결과", data);
           result = data;
           console.log("함수 결과", result);
         });
 
-        // // 2
+        // // 2  -> jquery에서 ajax 많이 쓴다.
         // $.ajax({
         //   url: "https://api.hnpwa.com/v0/news/1.json",
         //   success: function (data) {

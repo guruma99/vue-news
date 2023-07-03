@@ -40,7 +40,7 @@ import { mapGetters } from "vuex";
 
 export default {
   computed: {
-    //#4️⃣index.js에서 getters의 fetchedAsk라는 변수를 바로 쓰고싶다면,
+    //#4️⃣index.js에서 store의 getters의 fetchedAsk라는 변수를 바로 쓰고싶다면,
     // #2번과 같이 객체가 아니라 배열로 연결하면 된다.
     ...mapGetters(["fetchedAsk"]),
 

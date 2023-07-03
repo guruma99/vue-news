@@ -1,12 +1,14 @@
+<!-- Ask에서 질문을 클릭 했을 때 해당질문의 상세 페이지 -->
 <template>
   <div>
     <!--🟡 사용자 정보 -->
     <section>
       <!-- 👇UserProfile.vue 컴포넌트 들고오기 -->
-      <user-profile :info="fetchedItem">
+      <!-- :info로 축약가능 -->
+      <user-profile props:info="fetchedItem">
         <!-- :info라고 props넘겨준다. -->
+        <!-- 🐛🐛v-slot 은 template을 같이 써줘야만 가능하다. -->
         <template v-slot:username>
-          <!-- <div>{{ fetchedItem.user }}</div> -->
           <router-link :to="`/user/${fetchedItem.user}`" class="link-text">
             {{ fetchedItem.user }}
           </router-link>
@@ -41,10 +43,13 @@ export default {
     UserProfile,
   },
   computed: {
+    // store의 getters의 fetchedAsk라는 변수를 바로 쓰고싶다면, store에 정의된 대로 객체가 아니라 배열로 연결하면 된다.
     ...mapGetters(["fetchedItem"]),
   },
   created() {
+    //ASK의 list에서 클릭해서 이동하며 해당 값을 넣어주었음. -> this.$route.params.id사용가능
     const itemId = this.$route.params.id;
+    console.log(this.$route.params.id);
     this.$store.dispatch("FETCH_ITEM", itemId);
   },
 };
