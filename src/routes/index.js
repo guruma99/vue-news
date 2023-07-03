@@ -4,6 +4,7 @@ import JobsView from "../views/JobsView.vue";
 import AskView from "../views/AskView.vue";
 import UserView from "../views/UserView.vue";
 import ItemView from "../views/ItemView.vue";
+import { store } from "@/store";
 // import createListView from "../views/CreateListView.js";
 
 // Vue.use(VueRouter);
@@ -19,25 +20,70 @@ const routes = [
     name: "news",
     //component: url 주소로 갔을 때 표시될 컴포넌트 =page
     component: NewsView,
+
     // component: createListView("NewsView"),
 
     //👇특정페이지로 이동할 때 if문과 함께 쓰여 인증정보가 있는지없는지 확인할 때 가장 많이 쓰임
-    // beforeEnter: (to, from, next) => {
-    //   console.log("to", to); //이동할 URL 라우팅 정보
-    //   console.log("from", from); // 현재 URL의 라우팅 정보
-    //   console.log("nexto", next); // next()를 호출해줘야지만 다른 URL로 이동할 수 있다.
-    // },
+    beforeEnter: (to, from, next) => {
+      // console.log("to", to); //이동할 URL 라우팅 정보
+      // console.log("from", from); // 현재 URL의 라우팅 정보
+      // console.log("nexto", next); // next()를 호출해줘야지만 다른 URL로 이동할 수 있다.
+      store.commit("updateLoadingStatus", true);
+      store
+        .dispatch("FETCH_LIST", to.name)
+        .then(() => {
+          console.log("news로 넘어감");
+          next();
+          // store.commit("updateLoadingStatus", false);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      // 👇예시
+      // if(to.auth) {
+      //   next();
+      // } else {
+      //   router.replace('/login')
+      // }
+    },
   },
   {
     path: "/ask",
     name: "ask",
     component: AskView,
+    beforeEnter: (to, from, next) => {
+      store.commit("updateLoadingStatus", true);
+      store
+        .dispatch("FETCH_LIST", to.name)
+        .then(() => {
+          console.log("ask로 넘어감");
+          next();
+          // store.commit("updateLoadingStatus", false);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
     // component: createListView("AskView"),
   },
   {
     path: "/jobs",
     name: "jobs",
     component: JobsView,
+    beforeEnter: (to, from, next) => {
+      store.commit("updateLoadingStatus", true);
+      store
+        .dispatch("FETCH_LIST", to.name)
+        .then(() => {
+          console.log("jobs로 넘어감");
+          next();
+          // store.commit("updateLoadingStatus", false);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+
     // component: createListView("JobsView"),
   },
   {

@@ -8,7 +8,7 @@ export default {
       .dispatch("FETCH_LIST", this.$route.name)
       .then(() => {
         console.log("fetched");
-        this.$store.commit("updateLoadingStatus", false);
+        // this.$store.commit("updateLoadingStatus", false);
       })
       .catch((error) => {
         console.log(error);

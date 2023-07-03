@@ -7,20 +7,23 @@
 
 <script>
 import ListItem from "../components/ListItem.vue";
-import ListMixin from "../mixins/ListMixin.js";
+// import ListMixin from "../mixins/ListMixin.js";
 
 export default {
   components: {
     ListItem,
   },
 
-  mixins: [ListMixin],
-
-  computed: {
-    loadingStatus() {
-      return this.$store.state.loadingStatus;
-    },
+  // mixins: [ListMixin],
+  mounted() {
+    this.$store.commit("updateLoadingStatus", false);
   },
+
+  // computed: {
+  //   loadingStatus() {
+  //     return this.$store.state.loadingStatus;
+  //   },
+  // },
 
   // async created() {
   //   this.$store.commit("updateLoadingStatus", true);

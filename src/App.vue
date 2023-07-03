@@ -19,11 +19,6 @@ export default {
     ToolBar,
     Spinner,
   },
-  // data() {
-  //   return {
-  //     loadingStatus: true,
-  //   };
-  // },
 
   computed: {
     loadingStatus() {
@@ -31,14 +26,6 @@ export default {
     },
   },
 
-  // methods: {
-  //   startSpinner() {
-  //     this.loadingStatus = true;
-  //   },
-  //   endSpinner() {
-  //     this.loadingStatus = false;
-  //   },
-  // },
   created() {
     // 🐛🐛 vue2에서만 eventBus 가능. 현재 vue3에서는 안먹는다.
     // 👇methods적기 전

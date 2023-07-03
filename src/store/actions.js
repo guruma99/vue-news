@@ -27,6 +27,7 @@ export default {
 
   // 🧐 async&await 구문
   // --> 비동기처리코드에서 return 을 작성하지 않으면 생기는 일은?
+  // 화면에서 disPatch하고 나서 (promise)then으로 체이닝을 해야하는데 리턴이 안넘어오면 의도한 대로 비동기 처리가 되지 않는다.
   // 화면에서의 비동기순서를 보장할 수 없기 때문에(UX가 불안정해보이고 약간의 오류), 결과값을 항상 반환해줘야 한다.
   async FETCH_NEWS(context) {
     const response = await fetchNewsList();
